@@ -10,7 +10,6 @@ const App = () => {
 
   const decrease = () => {
     count > 0 ? setCount(count - 1) : "";
-    //comment
   };
 
   return (
