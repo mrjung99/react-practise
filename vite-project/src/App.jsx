@@ -18,6 +18,7 @@ const App = () => {
       <p>{count}</p>
       <button onClick={increase}>increase</button>
       <button onClick={decrease}>decrease</button>
+      <button onClick={() => setCount(0)}>Reset</button>
     </div>
   );
 };

@@ -36,6 +36,7 @@ const App = () => {
       <h1 className="text-center text-white mb-4  text-2xl">
         Password generator
       </h1>
+
       <div className="flex rounded-lg overflow-hidden mb-4 ">
         <input
           type="text"
@@ -45,6 +46,7 @@ const App = () => {
           readOnly
           ref={passwrodRef}
         />
+
         <button
           className="bg-blue-800 hover:bg-blue-600 text-white  py-1  px-2.5 shrink-0 outline-none cursor-pointer"
           onClick={copyPasswordToClipBoard}
@@ -52,6 +54,7 @@ const App = () => {
           Copy
         </button>
       </div>
+
       <div className="flex gap-3 items-center ">
         <div className="flex items-center gap-1">
           <input
@@ -63,6 +66,7 @@ const App = () => {
           />
           <label>Length: {length}</label>
         </div>
+
         <div className="flex gap-1">
           <input
             type="checkbox"
@@ -71,6 +75,7 @@ const App = () => {
           />
           <label>Numbers</label>
         </div>
+
         <div className="flex gap-1">
           <input
             type="checkbox"
