@@ -4,11 +4,14 @@ import NetflixCard from "./NetflixCard";
 
 const NetflixSeries = () => {
   return (
-    <ul className=" mb-5 mt-2 flex flex-col gap-5 items-center justify-center">
-      {seriesData.map((data) => {
-        return <NetflixCard key={data.id} data={data} />;
-      })}
-    </ul>
+    <>
+      <h1 className="text-white text-3xl ml-6 my-4 ">Series List</h1>
+      <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 px-5 list-none">
+        {seriesData.map((data) => {
+          return <NetflixCard key={data.id} data={data} />;
+        })}
+      </ul>
+    </>
   );
 };
 
