@@ -4,7 +4,7 @@ import { MdOutlineDone, MdDeleteForever } from "react-icons/md";
 const DisplayTask = ({ task }) => {
   return (
     <div>
-      <ul className="text-gray-400 mt-6 select-none">
+      <ul className="text-gray-200 mt-6 select-none">
         {task.map((curTask, index) => {
           return (
             <li
@@ -26,6 +26,15 @@ const DisplayTask = ({ task }) => {
           );
         })}
       </ul>
+
+      {task.length >= 2 ? (
+        <button className="flex items-center gap-1 bg-red-900 hover:bg-red-800 border-none rounded py-1 px-2 cursor-pointer">
+          <MdDeleteForever />
+          <span>Clear all</span>
+        </button>
+      ) : (
+        ""
+      )}
     </div>
   );
 };

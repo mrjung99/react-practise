@@ -21,7 +21,7 @@ const App = () => {
   return (
     <div
       className="w-full mx-auto max-w-md rounded 
-    text-white min-h-[90vh] bg-neutral-900 p-4 mt-3"
+    text-white min-h-[90vh] bg-[rgb(255,255,255,0.1)] p-4 mt-3 shadow-md"
     >
       <Header />
 
