@@ -21,7 +21,7 @@ const App = () => {
 
   return (
     <div className="w-full max-w-md mx-auto shadow-md mt-4 px-3">
-      <h1 className="text-3xl font-bold">Sign UP</h1>
+      <h1 className="text-4xl font-bold">Sign UP</h1>
       <h2 className="tex-[12px] text-gray-600">
         Please fill in this form to create an account
       </h2>
@@ -33,7 +33,7 @@ const App = () => {
         <input
           onChange={(e) => handleInput(e)}
           value={user.firstName}
-          className="text-[12px]  font-light border rounded border-gray-400 outline-none p-1  bg-gray-100"
+          className="text-[13px]  font-light border rounded border-gray-400 outline-none p-1  bg-gray-100"
           type="text"
           name="firstName"
           placeholder="first name"
@@ -42,7 +42,7 @@ const App = () => {
         <input
           onChange={(e) => handleInput(e)}
           value={user.lastName}
-          className="text-[12px] font-extralight rounded border border-gray-400 outline-none p-1 bg-gray-100"
+          className="text-[13px] font-extralight rounded border border-gray-400 outline-none p-1 bg-gray-100"
           type="text"
           name="lastName"
           placeholder="last name"
@@ -51,7 +51,7 @@ const App = () => {
         <input
           onChange={(e) => handleInput(e)}
           value={user.email}
-          className="text-[12px]  font-extralight rounded border border-gray-400 outline-none p-1 bg-gray-100"
+          className="text-[13px]  font-extralight rounded border border-gray-400 outline-none p-1 bg-gray-100"
           type="email"
           name="email"
           placeholder="email"
@@ -60,7 +60,7 @@ const App = () => {
         <input
           onChange={(e) => handleInput(e)}
           value={user.password}
-          className="text-[12px]  font-extralight rounded border border-gray-400 outline-none p-1 bg-gray-100"
+          className="text-[13px]  font-extralight rounded border border-gray-400 outline-none p-1 bg-gray-100"
           type="password"
           name="password"
           placeholder="password"
@@ -70,7 +70,7 @@ const App = () => {
         <input
           onChange={(e) => handleInput(e)}
           value={user.phoneNumber}
-          className="text-[12px] font-extralight rounded border border-gray-400 outline-none p-1 bg-gray-100"
+          className="text-[13px] font-extralight rounded border border-gray-400 outline-none p-1 bg-gray-100"
           type="phone"
           name="phoneNumber"
           placeholder="9814624133"
@@ -89,7 +89,7 @@ const App = () => {
           type="submit"
           className="bg-blue-500 hover:bg-blue-600 rounded text-white py-1 my-4 cursor-pointer"
         >
-          Submit
+          Sign Up
         </button>
       </form>
     </div>
