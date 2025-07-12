@@ -2,20 +2,51 @@ import React, { useState } from "react";
 import Header from "./components/Header";
 import Input from "./components/Input";
 import DisplayTask from "./components/DisplayTask";
+import { MdOutlineDone, MdDeleteForever } from "react-icons/md";
+import {
+  getLocalStorageToDoData,
+  setLocalStorageToDoData,
+} from "./components/Utlis";
 
 const App = () => {
-  const [inputValue, setInputValue] = useState("");
-  const [task, setTask] = useState([]);
+  const [task, setTask] = useState(() => getLocalStorageToDoData());
 
-  const handleAddTask = () => {
-    if (!inputValue) return;
-    if (task.includes(inputValue)) {
-      setInputValue("");
-      return;
-    }
+  const handleFormSubmit = (inputValue) => {
+    const { id, content, checked } = inputValue;
 
-    setTask((prevTask) => [...prevTask, inputValue]);
-    setInputValue("");
+    if (!content) return;
+
+    const ifContainsTask = task.find(
+      (currTask) => currTask.content === content
+    );
+
+    if (ifContainsTask) return;
+
+    setTask((prevTask) => [...prevTask, { id, content, checked }]);
+  };
+
+  const handleDeleteTask = (value) => {
+    const updatedTask = task.filter((currTask) => currTask.content !== value);
+
+    setTask(updatedTask);
+  };
+
+  setLocalStorageToDoData(task);
+
+  const handleCheckedTask = (value) => {
+    const updatedTask = task.map((currTask) => {
+      if (currTask.content === value) {
+        return { ...currTask, checked: !currTask.checked };
+      } else {
+        return currTask;
+      }
+    });
+
+    setTask(updatedTask);
+  };
+
+  const handleClearAll = () => {
+    setTask([]);
   };
 
   return (
@@ -25,12 +56,33 @@ const App = () => {
     >
       <Header />
 
-      <Input
-        inputValue={inputValue}
-        setInputValue={setInputValue}
-        handleAddTask={handleAddTask}
-      />
-      <DisplayTask task={task} />
+      <Input onAddToDo={handleFormSubmit} />
+
+      <ul className="text-gray-200 mt-6 select-none">
+        {task.map((curTask) => {
+          return (
+            <DisplayTask
+              key={curTask.id}
+              task={curTask.content}
+              checked={curTask.checked}
+              onhandleDeleteClicked={handleDeleteTask}
+              onCheckedClicked={handleCheckedTask}
+            />
+          );
+        })}
+      </ul>
+
+      {task.length >= 2 ? (
+        <button
+          onClick={handleClearAll}
+          className="flex items-center gap-1 bg-red-900 hover:bg-red-800 border-none rounded py-1 px-2 cursor-pointer"
+        >
+          <MdDeleteForever />
+          <span>Clear all</span>
+        </button>
+      ) : (
+        ""
+      )}
     </div>
   );
 };

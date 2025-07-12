@@ -1,41 +1,32 @@
 import React from "react";
 import { MdOutlineDone, MdDeleteForever } from "react-icons/md";
 
-const DisplayTask = ({ task }) => {
+const DisplayTask = ({
+  checked,
+  task,
+  onCheckedClicked,
+  onhandleDeleteClicked,
+}) => {
   return (
-    <div>
-      <ul className="text-gray-200 mt-6 select-none">
-        {task.map((curTask, index) => {
-          return (
-            <li
-              key={index}
-              className="flex gap-2 justify-between my-3 bg-[rgb(0,0,0,0.4)] rounded p-2"
-            >
-              <h1>{curTask}</h1>
+    <li className="flex gap-2 justify-between my-3 bg-[rgb(0,0,0,0.4)] rounded p-2">
+      <h1 className={checked ? "line-through" : ""}>{task}</h1>
 
-              <div className="flex gap-1">
-                <button className="bg-green-900 rounded-full p-1 hover:bg-green-700 cursor-pointer">
-                  <MdOutlineDone />
-                </button>
-
-                <button className="bg-red-900 rounded-full p-1 hover:bg-red-700 cursor-pointer">
-                  <MdDeleteForever />
-                </button>
-              </div>
-            </li>
-          );
-        })}
-      </ul>
-
-      {task.length >= 2 ? (
-        <button className="flex items-center gap-1 bg-red-900 hover:bg-red-800 border-none rounded py-1 px-2 cursor-pointer">
-          <MdDeleteForever />
-          <span>Clear all</span>
+      <div className="flex gap-1">
+        <button
+          onClick={() => onCheckedClicked(task)}
+          className="bg-green-900 rounded-full p-1 hover:bg-green-700 cursor-pointer"
+        >
+          <MdOutlineDone />
         </button>
-      ) : (
-        ""
-      )}
-    </div>
+
+        <button
+          onClick={() => onhandleDeleteClicked(task)}
+          className="bg-red-900 rounded-full p-1 hover:bg-red-700 cursor-pointer"
+        >
+          <MdDeleteForever />
+        </button>
+      </div>
+    </li>
   );
 };
 
