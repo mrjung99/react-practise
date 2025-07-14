@@ -28,7 +28,7 @@ const Pokemon = () => {
         <h1 className="text-4xl font-medium">Let's catch Pokémon</h1>
       </header>
       <ul className="grid lg:grid-cols-4 gap-6 md:grid-cols-3 sm:grid-cols-2">
-        <li className="mt-6 shadow-lg p-3 hover:scale-110 hover:transition-all border border-gray-100">
+        <li className="mt-6 shadow-lg p-3 hover:scale-110 hover:transition-all hover:ease-in-out border border-gray-100">
           <figure className="flex items-center justify-center">
             <img
               className="h-24"
