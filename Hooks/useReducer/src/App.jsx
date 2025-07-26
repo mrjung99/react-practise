@@ -48,6 +48,7 @@ const App = () => {
         >
           Decrement
         </button>
+
         <button
           onClick={() => dispatch({ type: "RESET" })}
           className="bg-blue-800 hover:bg-blue-700 text-white px-2 py-1 rounded cursor-pointer"
