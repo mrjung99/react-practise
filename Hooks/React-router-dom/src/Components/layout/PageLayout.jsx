@@ -5,7 +5,7 @@ import { Outlet } from "react-router-dom";
 
 const PageLayout = () => {
   return (
-    <div className="mx-12">
+    <div className="">
       <Header />
       <Outlet />
       <Footer />
