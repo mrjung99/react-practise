@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 
 const Header = () => {
   return (
-    <div className="flex justify-between items-center shadow-2xl h-14 px-3">
+    <div className="flex justify-around gap-25 items-center shadow-2xl h-14 px-3">
       <div>React-project</div>
       <div>
         <ul className="flex gap-7">

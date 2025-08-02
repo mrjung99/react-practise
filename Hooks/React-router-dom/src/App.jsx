@@ -5,12 +5,15 @@ import About from "./pages/About";
 import Movies from "./pages/Movies";
 import Contact from "./pages/Contact";
 import PageLayout from "./Components/layout/PageLayout";
+import ErrorPage from "./pages/ErrorPage";
+import { getApiData } from "./api/GetMpviesData";
 
 const App = () => {
   const router = createBrowserRouter([
     {
       path: "/",
       element: <PageLayout />,
+      errorElement: <ErrorPage />,
       children: [
         {
           path: "/",
@@ -25,6 +28,7 @@ const App = () => {
         {
           path: "/movies",
           element: <Movies />,
+          loader: getApiData,
         },
 
         {
