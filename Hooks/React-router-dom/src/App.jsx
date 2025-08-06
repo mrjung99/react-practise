@@ -1,19 +1,19 @@
 import React from "react";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import Home from "./pages/Home";
-import About from "./pages/About";
-import Movies from "./pages/Movies";
-import Contact from "./pages/Contact";
+import Home from "./Components/pages/Home";
+import About from "./Components/pages/About";
+import Movies from "./Components/pages/Movies";
+import Contact from "./Components/pages/Contact";
 import PageLayout from "./Components/layout/PageLayout";
-import ErrorPage from "./pages/ErrorPage";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { getApiData } from "./api/GetMpviesData";
+import MovieDetail from "./Components/ui/MovieDetail";
+import { getMovieDetails } from "./api/GetMovieDetails";
 
-const App = () => {
+function App() {
   const router = createBrowserRouter([
     {
       path: "/",
       element: <PageLayout />,
-      errorElement: <ErrorPage />,
       children: [
         {
           path: "/",
@@ -32,6 +32,12 @@ const App = () => {
         },
 
         {
+          path: "/movies/:movieID",
+          element: <MovieDetail />,
+          loader: getMovieDetails,
+        },
+
+        {
           path: "/contact",
           element: <Contact />,
         },
@@ -40,6 +46,6 @@ const App = () => {
   ]);
 
   return <RouterProvider router={router} />;
-};
+}
 
 export default App;

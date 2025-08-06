@@ -1,4 +1,5 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
 
 const Card = ({ currMovie }) => {
   const { Poster, imdbID } = currMovie;
@@ -15,9 +16,11 @@ const Card = ({ currMovie }) => {
 
       {/* Card content */}
       <div className="text-center w-full mt-2 ">
-        <button className=" w-full px-2 py-0.5 bg-gray-500 text-white text-[12px] hover:bg-gray-600 transition cursor-pointer">
-          Watch Now
-        </button>
+        <NavLink to={`/movies/${imdbID}`}>
+          <button className=" w-full px-2 py-0.5 bg-gray-500 text-white text-[12px] hover:bg-gray-600 transition cursor-pointer">
+            Watch Now
+          </button>
+        </NavLink>
       </div>
     </div>
   );

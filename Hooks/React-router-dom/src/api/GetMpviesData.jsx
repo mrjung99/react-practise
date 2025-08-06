@@ -1,7 +1,9 @@
 export const getApiData = async () => {
   try {
     const response = await fetch(
-      "http://www.omdbapi.com/?apikey=46e006f3&s=titanic"
+      `https://www.omdbapi.com/?i=tt3896198&apikey=${
+        import.meta.env.VITE_API_KEY
+      }&s=titanic&page=1`
     );
     const data = await response.json();
 
@@ -10,3 +12,4 @@ export const getApiData = async () => {
     console.log(error);
   }
 };
+``;
