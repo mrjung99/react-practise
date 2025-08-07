@@ -4,7 +4,6 @@ import { NavLink, useLoaderData, useParams } from "react-router-dom";
 
 const MovieDetail = () => {
   const params = useParams();
-  console.log(params);
 
   const movieDetial = useLoaderData();
   console.log(movieDetial.Ratings[0].Value);

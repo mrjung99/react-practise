@@ -4,7 +4,6 @@ import Card from "../ui/Card";
 
 const Movies = () => {
   const moviesData = useLoaderData();
-  console.log(moviesData);
 
   return (
     <>
