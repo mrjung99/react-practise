@@ -8,6 +8,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { getApiData } from "./api/GetMpviesData";
 import MovieDetail from "./Components/ui/MovieDetail";
 import { getMovieDetails } from "./api/GetMovieDetails";
+import { contactData } from "./utlisFunction/PostContactData";
 
 function App() {
   const router = createBrowserRouter([
@@ -40,6 +41,7 @@ function App() {
         {
           path: "/contact",
           element: <Contact />,
+          action: contactData,
         },
       ],
     },
