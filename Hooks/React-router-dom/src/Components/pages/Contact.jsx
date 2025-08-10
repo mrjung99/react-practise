@@ -1,5 +1,6 @@
 import React from "react";
 import contactImage from "../../images/contact.png";
+import { Form } from "react-router-dom";
 
 const Contact = () => {
   return (
@@ -11,7 +12,7 @@ const Contact = () => {
         </div>
 
         <div>
-          <form method="POST" action="/contact" className="flex flex-col gap-4">
+          <Form method="POST" action="/contact" className="flex flex-col gap-4">
             <div className="flex flex-col gap-1">
               <label htmlFor="username">Full name</label>
               <input
@@ -56,7 +57,7 @@ const Contact = () => {
             >
               Send message
             </button>
-          </form>
+          </Form>
         </div>
       </div>
       <div>
