@@ -6,7 +6,6 @@ const MovieDetail = () => {
   const params = useParams();
 
   const movieDetial = useLoaderData();
-  console.log(movieDetial.Ratings[0].Value);
   const {
     Actors,
     Country,
