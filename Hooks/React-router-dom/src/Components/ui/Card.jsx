@@ -5,7 +5,7 @@ const Card = ({ currMovie }) => {
   const { Poster, imdbID } = currMovie;
 
   return (
-    <div className="w-40 h-50 shadow-2xl bg-white flex flex-col items-center">
+    <div className="w-40 h-50 shadow-2xl bg-white flex flex-col items-center hover:border hover:border-gray-400 hover:shadow-2xl">
       {/* Popped out image */}
       <div className="w-32 h-42">
         <img
@@ -16,7 +16,7 @@ const Card = ({ currMovie }) => {
       </div>
 
       {/* Card content */}
-      <div className="text-center w-full mt-2 shadow-2xl ">
+      <div className="text-center w-full mt-1.5 shadow-2xl ">
         <NavLink to={`/movies/${imdbID}`}>
           <button className=" w-full px-2 py-0.5 bg-gray-500 text-white text-[12px] hover:bg-gray-600 transition cursor-pointer">
             Watch Now
