@@ -6,6 +6,8 @@ import { Outlet, useNavigation } from "react-router-dom";
 const PageLayout = () => {
   const navigation = useNavigation();
 
+  console.log(navigation.state);
+
   if (navigation.state === "loading")
     return (
       <h1 className="text-center mt-20 text-6xl font-semibold">Loading.....</h1>
