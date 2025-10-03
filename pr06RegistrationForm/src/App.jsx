@@ -56,7 +56,7 @@ const App = () => {
           name="email"
           placeholder="email"
         />
-        <label className="mt-2.5">First name:</label>
+        <label className="mt-2.5">Password:</label>
         <input
           onChange={(e) => handleInput(e)}
           value={user.password}
