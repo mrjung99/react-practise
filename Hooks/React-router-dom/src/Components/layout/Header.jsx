@@ -21,6 +21,7 @@ const Header = () => {
               Home
             </NavLink>
           </li>
+
           <li>
             <NavLink
               to="about"
@@ -35,6 +36,7 @@ const Header = () => {
               About
             </NavLink>
           </li>
+
           <li>
             <NavLink
               to="movies"
@@ -49,6 +51,7 @@ const Header = () => {
               Movies
             </NavLink>
           </li>
+
           <li>
             <NavLink
               to="contact"
