@@ -1,9 +1,9 @@
 import React from "react";
 import Card from "./Card";
-import { NavLink, useLoaderData, useParams } from "react-router-dom";
+import { NavLink, useLoaderData } from "react-router-dom";
 
 const MovieDetail = () => {
-  const params = useParams();
+  // const params = useParams();
 
   const movieDetial = useLoaderData();
   const {

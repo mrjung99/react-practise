@@ -5,7 +5,7 @@ const Card = ({ currMovie }) => {
   const { Poster, imdbID } = currMovie;
 
   return (
-    <div className="w-40 h-50 shadow-2xl bg-white flex flex-col items-center hover:border hover:border-gray-400 hover:shadow-2xl">
+    <div className="w-40 h-50 shadow-2xl bg-white flex flex-col items-center hover:border hover:border-gray-600 hover:shadow-2xl">
       {/* Popped out image */}
       <div className="w-32 h-42">
         <img
