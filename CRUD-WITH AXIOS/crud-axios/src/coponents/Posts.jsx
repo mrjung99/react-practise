@@ -7,8 +7,8 @@ const Posts = () => {
   const getApiData = async () => {
     try {
       const res = await getData();
-      setData(res.data);
       console.log(res.data);
+      setData(res.data);
     } catch (error) {
       console.log(error);
     }
@@ -19,7 +19,7 @@ const Posts = () => {
   }, []);
   return (
     <section className="max-w-6xl mx-auto">
-      <ul className="grid grid-cols-3 gap-7 text-justify">
+      <ul className="grid grid-cols-3 gap-7">
         {data.map((currData) => {
           const { id, title, body } = currData;
           return (
