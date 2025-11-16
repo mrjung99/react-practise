@@ -57,20 +57,20 @@ const Posts = () => {
             <li
               key={id}
               className="bg-gray-800 flex flex-col text-gray-300 gap-3 
-              p-3 rounded-lg border-l border-gray-500 hover:outline hover:outline-gray-600"
+              p-3 rounded-lg border-l border-gray-500 hover:outline hover:outline-gray-600 "
             >
               <p>Title: {title}</p>
               <p>Body: {body}</p>
               <div className="flex gap-4">
                 <button
                   onClick={() => handleUpdatePost(currData)}
-                  className="bg-green-600 hover:bg-green-500 text-white px-4 
+                  className="bg-green-600 hover:bg-green-500 transition-colors text-white px-4 
                   py-1 rounded cursor-pointer"
                 >
                   Edit
                 </button>
                 <button
-                  className="bg-orange-600 hover:bg-orange-500
+                  className="bg-orange-600 hover:bg-orange-500 transition-colors
                   text-white px-4 py-1 rounded cursor-pointer"
                   onClick={() => handleDeletePost(id)}
                 >
