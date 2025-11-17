@@ -8,6 +8,7 @@ const Form = ({ data, setData, updatePost, setUpdatePost }) => {
   });
 
   //* get updated info
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => {
     if (updatePost) {
       setAddPost({
