@@ -1,11 +1,22 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { postData } from "../api/PostApi";
 
-const Form = ({ data, setData }) => {
+const Form = ({ data, setData, updatePost, setUpdatePost }) => {
   const [addPost, setAddPost] = useState({
     title: "",
     body: "",
   });
+
+  useEffect(() => {
+    if (updatePost) {
+      setAddPost({
+        title: updatePost.title || "",
+        body: updatePost.body || "",
+      });
+    }
+  }, [updatePost]);
+
+  const isUpdatePostEmpty = !updatePost || Object.keys(updatePost).length === 0;
 
   const handleInputchange = (e) => {
     const name = e.target.name;
@@ -59,8 +70,10 @@ const Form = ({ data, setData }) => {
           type="submit"
           className="bg-green-600 px-3 py-1 rounded hover:bg-green-500 transition-colors cursor-pointer"
         >
-          Add Posts
+          {isUpdatePostEmpty ? "Add Posts" : "Update Post"}
         </button>
+
+        {}
       </form>
     </div>
   );
