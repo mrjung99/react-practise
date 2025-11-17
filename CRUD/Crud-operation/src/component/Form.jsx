@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { postData } from "../api/PostApi";
+import { postData, updateData } from "../api/PostApi";
 
 const Form = ({ data, setData, updatePost, setUpdatePost }) => {
   const [addPost, setAddPost] = useState({
@@ -7,6 +7,7 @@ const Form = ({ data, setData, updatePost, setUpdatePost }) => {
     body: "",
   });
 
+  //* get updated info
   useEffect(() => {
     if (updatePost) {
       setAddPost({
@@ -26,10 +27,11 @@ const Form = ({ data, setData, updatePost, setUpdatePost }) => {
     });
   };
 
+  //* add data
   const addPostData = async (addPost) => {
     try {
       const res = await postData(addPost);
-      console.log(res.data);
+      // console.log(res.data);
 
       if (res.status === 201 && res.data.title !== "" && res.data.body !== "") {
         setData([...data, res.data]);
@@ -42,9 +44,42 @@ const Form = ({ data, setData, updatePost, setUpdatePost }) => {
     }
   };
 
+  //* update data
+  const updatePostData = async () => {
+    try {
+      const res = await updateData(updatePost.id, addPost);
+      // console.log(res);
+      if (res.status === 200 && res.data.title !== "" && res.data.body !== "") {
+        setData((prev) => {
+          return prev.map((currData) => {
+            return res.data.id === currData.id ? res.data : currData;
+          });
+        });
+        setAddPost({ title: "", body: "" });
+        setUpdatePost(null);
+      } else {
+        console.lof("Please enter title and body");
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  //* form submit
   const handleSubmit = (e) => {
     e.preventDefault();
-    addPostData();
+    const action = e.nativeEvent.submitter.value;
+    if (action === "Add Post") {
+      addPostData();
+    } else if (action === "Update Post") {
+      updatePostData();
+    }
+  };
+
+  //* handle cancel button
+  const handleCancel = () => {
+    setUpdatePost(null);
+    setAddPost({ title: "", body: "" });
   };
 
   return (
@@ -69,11 +104,20 @@ const Form = ({ data, setData, updatePost, setUpdatePost }) => {
         <button
           type="submit"
           className="bg-green-600 px-3 py-1 rounded hover:bg-green-500 transition-colors cursor-pointer"
+          value={isUpdatePostEmpty ? "Add Post" : "Update Post"}
         >
-          {isUpdatePostEmpty ? "Add Posts" : "Update Post"}
+          {isUpdatePostEmpty ? "Add Post" : "Update Post"}
         </button>
 
-        {}
+        {updatePost && (
+          <button
+            className="bg-gray-500 px-3 py-1 rounded hover:bg-gray-400 transition-colors 
+            cursor-pointer"
+            onClick={handleCancel}
+          >
+            Cancel
+          </button>
+        )}
       </form>
     </div>
   );

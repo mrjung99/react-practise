@@ -44,6 +44,9 @@ const Posts = () => {
 
   return (
     <section className="max-w-6xl mx-auto flex flex-col gap-4 items-center ">
+      <h1 className="text-gray-300 text-5xl font-semibold mb-2">
+        CRUD with Axios
+      </h1>
       <Form
         data={data}
         setData={setData}
@@ -70,8 +73,8 @@ const Posts = () => {
                   Edit
                 </button>
                 <button
-                  className="bg-red-500 px-3 py-1 text-gray-800 
-                  rounded cursor-pointer hover:bg-red-600 transition-colors"
+                  className="bg-orange-500 px-3 py-1 text-gray-800 
+                  rounded cursor-pointer hover:bg-orange-400 transition-colors"
                   onClick={() => handleDelete(id)}
                 >
                   Delete
