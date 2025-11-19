@@ -19,7 +19,7 @@ const Accordion = () => {
   return (
     <div className="bg-gray-900 h-lvh flex flex-col gap-10 items-center ">
       <h1 className="mt-4 text-4xl text-gray-400">Accordion using React</h1>
-      <ul className="w-4xl flex flex-col gap-2">
+      <ul className="md:w-4xl flex flex-col gap-2">
         {data.map((currData) => {
           return (
             <Faq

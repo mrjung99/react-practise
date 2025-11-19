@@ -2,7 +2,7 @@ const Faq = ({ currData, isActive, onToggle }) => {
   const { answer, question } = currData;
 
   return (
-    <li className="border-l border-gray-600">
+    <li className="border-l-2 border-gray-500">
       <div className="flex justify-between items-center text-gray-300 bg-gray-800 p-2">
         <p className="text-gra ">{question}</p>
         <button
