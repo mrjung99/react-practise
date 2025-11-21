@@ -2,9 +2,9 @@ import React from "react";
 
 const HeroSection = () => {
   return (
-    <div className="flex items-center justify-around w-6xl mx-auto font-urbanist">
+    <div className="h-lvh flex flex-col md:flex-row items-center p-3 md:px-12 font-urbanist">
       <div>
-        <p className="text-4xl font-bold leading-normal">
+        <p className="text-2xl md:text-4xl font-bold leading-normal">
           All your files in one secure location
         </p>
         <p className="">
