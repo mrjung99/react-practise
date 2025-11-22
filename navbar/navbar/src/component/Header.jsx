@@ -15,8 +15,9 @@ const Header = () => {
       </div>
 
       <nav
-        className="absolute md:static top-[60px] md:top-0 left-0 md:left-auto bg-gray-100 md:bg-transparent w-full 
-              md:w-auto text-center md:text-left shadow-md md:shadow-none"
+        className="absolute md:static top-[60px] md:top-0 left-0 md:left-auto 
+        bg-gray-100 md:bg-transparent w-full 
+          md:w-auto text-center md:text-left shadow-md md:shadow-none"
       >
         <ul
           className={
@@ -34,7 +35,7 @@ const Header = () => {
           <li className="hover:text-blue-500 transition-colors cursor-pointer">
             Service
           </li>
-          <li className="hover:text-blue-500 transition-colors cursor-pointer mb-2 md:mb-0">
+          <li className="hover:text-blue-500  transition-colors cursor-pointer mb-2 md:mb-0">
             Contact
           </li>
         </ul>
