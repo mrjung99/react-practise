@@ -15,9 +15,8 @@ const Header = () => {
       </div>
 
       <nav
-        className="absolute md:static top-[60px] md:top-0 left-0 md:left-auto 
-        bg-gray-100 md:bg-transparent w-full 
-          md:w-auto text-center md:text-left shadow-md md:shadow-none"
+        className="absolute md:static top-[60px] md:top-0 left-0 md:left-aut bg-gray-100 
+        md:bg-transparent w-full md:w-auto text-center md:text-left shadow-md md:shadow-none"
       >
         <ul
           className={
