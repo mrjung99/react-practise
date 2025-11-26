@@ -5,6 +5,7 @@ import PageLayout from "./Components/layout/PageLayout";
 import Home from "./Components/pages/Home";
 import { About } from "./pages/About";
 import Data from "./pages/Data";
+import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 
 const App = () => {
   const queryClient = new QueryClient();
@@ -34,6 +35,7 @@ const App = () => {
       <RouterProvider router={router}>
         <PageLayout />
       </RouterProvider>
+      <ReactQueryDevtools initialIsOpen={false} />
     </QueryClientProvider>
   );
 };

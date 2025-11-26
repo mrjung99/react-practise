@@ -6,6 +6,7 @@ const Data = () => {
   const { data, isLoading, isError, error } = useQuery({
     queryKey: ["data"],
     queryFn: getPosts,
+    staleTime: 5000,
   });
 
   if (isLoading) {
@@ -15,6 +16,7 @@ const Data = () => {
       </div>
     );
   }
+
   if (isError) {
     return (
       <div>
