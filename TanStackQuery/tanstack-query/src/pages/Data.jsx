@@ -18,6 +18,11 @@ const Data = () => {
     placeholderData: keepPreviousData, //this will restrict the component being re-render while pagination
   });
 
+  const handleroundedbutton = (e) => {
+    setPageNumber(Number(e.target.textContent) - 1);
+    console.log(Number(e.target.textContent));
+  };
+
   if (isLoading) {
     return (
       <div>
@@ -58,15 +63,44 @@ const Data = () => {
       </ul>
       <div className="flex gap-2 mt-8">
         <button
-          className="bg-green-400 text-white cursor-pointer"
+          className="bg-green-700 hover:bg-green-800 py-1 px-3 text-white cursor-pointer"
           disabled={pageNumber === 0 ? true : false}
           onClick={() => setPageNumber((prev) => prev - 3)}
         >
           Prev
         </button>
-        <p>{pageNumber / 3 + 1}</p>
         <button
-          className="bg-green-400 text-white cursor-pointer"
+          className="bg-gray-200 text-gray-900 rounded-full px-2 py-1 hover:bg-gray-300 
+          cursor-pointer"
+          onClick={() => setPageNumber(0)}
+        >
+          1
+        </button>
+        <button
+          className="bg-gray-200 text-gray-900 rounded-full px-2 py-1 hover:bg-gray-300 
+          cursor-pointer"
+          onClick={() => setPageNumber(3)}
+        >
+          2
+        </button>
+        <button
+          className="bg-gray-200 text-gray-900 rounded-full px-2 py-1 hover:bg-gray-300 
+          cursor-pointer"
+          onClick={() => setPageNumber(6)}
+        >
+          3
+        </button>
+        <button
+          className="bg-gray-200 text-gray-900 rounded-full px-2 py-1 hover:bg-gray-300 
+          cursor-pointer"
+          onClick={() => setPageNumber(9)}
+        >
+          4
+        </button>
+        <p>......</p>
+        {/* <p>{pageNumber / 3 + 1}</p> */}
+        <button
+          className="bg-green-700 hover:bg-green-800 py-1 px-3 text-white cursor-pointer"
           onClick={() => setPageNumber((prev) => prev + 3)}
         >
           Next
