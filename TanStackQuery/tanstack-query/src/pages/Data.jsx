@@ -1,12 +1,20 @@
 import { useQuery } from "@tanstack/react-query";
-import React from "react";
+import React, { useState } from "react";
 import { getPosts } from "../api/GetApi";
 
 const Data = () => {
+  const [pageNumber, setPageNumber] = useState(0);
+
   const { data, isLoading, isError, error } = useQuery({
     queryKey: ["data"],
-    queryFn: getPosts,
-    staleTime: 5000,
+    queryFn: () => getPosts(pageNumber),
+    // staleTime: 1000,
+    //gcTime: 20000,
+    //* polling refers to the techniques of fetching data from an api at regular intervals
+    //* to keep the ui up-to-date with the latest information || refetchInterval and
+    // *refetchIntervalInBackground are used for pooling
+    // refetchInterval:1000, -> this only update the data when the user interact with page or data
+    // refetchIntervalInBackground:true -> this will update the data even in background
   });
 
   if (isLoading) {
@@ -26,17 +34,38 @@ const Data = () => {
   }
 
   return (
-    <div>
-      <ul>
+    <div className="p-6">
+      <ul className="w-10/12 mx-auto grid grid-row-3 gap-3">
         {data?.map((currData) => {
           return (
-            <li key={currData.id}>
-              <p>{currData.title}</p>
-              <p>{currData.body}</p>
+            <li key={currData.id} className="bg-gray-700 p-3">
+              <p>
+                <span>Title: </span>
+                {currData.title}
+              </p>
+              <p>
+                <span>Body: </span>
+                {currData.body}
+              </p>
             </li>
           );
         })}
       </ul>
+      <div className="flex gap-2 mt-8">
+        <button
+          className="bg-green-400 text-white cursor-pointer"
+          onClick={() => setPageNumber((prev) => prev - 3)}
+        >
+          Prev
+        </button>
+        <p>{pageNumber}</p>
+        <button
+          className="bg-green-400 text-white cursor-pointer"
+          onClick={() => setPageNumber((prev) => prev + 3)}
+        >
+          Next
+        </button>
+      </div>
     </div>
   );
 };
