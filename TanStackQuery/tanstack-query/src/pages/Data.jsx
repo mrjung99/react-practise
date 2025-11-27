@@ -18,11 +18,6 @@ const Data = () => {
     placeholderData: keepPreviousData, //this will restrict the component being re-render while pagination
   });
 
-  const handleroundedbutton = (e) => {
-    setPageNumber(Number(e.target.textContent) - 1);
-    console.log(Number(e.target.textContent));
-  };
-
   if (isLoading) {
     return (
       <div>
