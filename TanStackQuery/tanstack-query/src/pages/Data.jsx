@@ -1,4 +1,4 @@
-import { useQuery } from "@tanstack/react-query";
+import { keepPreviousData, useQuery } from "@tanstack/react-query";
 import React, { useState } from "react";
 import { getPosts } from "../api/GetApi";
 
@@ -6,7 +6,7 @@ const Data = () => {
   const [pageNumber, setPageNumber] = useState(0);
 
   const { data, isLoading, isError, error } = useQuery({
-    queryKey: ["data"],
+    queryKey: ["data", pageNumber],
     queryFn: () => getPosts(pageNumber),
     // staleTime: 1000,
     //gcTime: 20000,
@@ -15,6 +15,7 @@ const Data = () => {
     // *refetchIntervalInBackground are used for pooling
     // refetchInterval:1000, -> this only update the data when the user interact with page or data
     // refetchIntervalInBackground:true -> this will update the data even in background
+    placeholderData: keepPreviousData, //this will restrict the component being re-render while pagination
   });
 
   if (isLoading) {
@@ -40,6 +41,10 @@ const Data = () => {
           return (
             <li key={currData.id} className="bg-gray-700 p-3">
               <p>
+                <span>ID: </span>
+                {currData.id}
+              </p>
+              <p>
                 <span>Title: </span>
                 {currData.title}
               </p>
@@ -54,11 +59,12 @@ const Data = () => {
       <div className="flex gap-2 mt-8">
         <button
           className="bg-green-400 text-white cursor-pointer"
+          disabled={pageNumber === 0 ? true : false}
           onClick={() => setPageNumber((prev) => prev - 3)}
         >
           Prev
         </button>
-        <p>{pageNumber}</p>
+        <p>{pageNumber / 3 + 1}</p>
         <button
           className="bg-green-400 text-white cursor-pointer"
           onClick={() => setPageNumber((prev) => prev + 3)}
