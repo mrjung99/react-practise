@@ -6,7 +6,7 @@ import { getDetail } from "../api/GetApi";
 const DataDetail = () => {
   const param = useParams();
 
-  const { data, isLoading, isError } = useQuery({
+  const { data, isLoading, isError, error } = useQuery({
     queryKey: ["data"],
     queryFn: () => getDetail(param.id),
   });

@@ -1,6 +1,11 @@
-import { keepPreviousData, useQuery } from "@tanstack/react-query";
+import {
+  keepPreviousData,
+  useMutation,
+  useQuery,
+  useQueryClient,
+} from "@tanstack/react-query";
 import React, { useState } from "react";
-import { getPosts } from "../api/GetApi";
+import { deletePost, getPosts, updatePost } from "../api/GetApi";
 import { NavLink } from "react-router-dom";
 
 const Data = () => {
@@ -17,6 +22,33 @@ const Data = () => {
     // refetchInterval:1000, -> this only update the data when the user interact with page or data
     // refetchIntervalInBackground:true -> this will update the data even in background
     placeholderData: keepPreviousData, //this will restrict the component being re-render while pagination
+  });
+
+  const clientQuery = useQueryClient();
+
+  //for crud operation we use useMutation hook
+  const handleDelete = useMutation({
+    mutationFn: (id) => deletePost(id),
+    onSuccess: (posts, id) => {
+      clientQuery.setQueryData(["data", pageNumber], (currElem) => {
+        return currElem?.filter((post) => post.id !== id);
+      });
+    },
+  });
+
+  const handleUPdate = useMutation({
+    mutationFn: (id) => updatePost(id),
+    onSuccess: (posts, id) => {
+      console.log(posts, id);
+
+      clientQuery.setQueryData(["data", pageNumber], (currElem) => {
+        return currElem?.map((currPost) => {
+          return currPost.id === id
+            ? { ...currPost, title: posts.data.title }
+            : currPost;
+        });
+      });
+    },
   });
 
   if (isLoading) {
@@ -58,12 +90,22 @@ const Data = () => {
                   {currData.body}
                 </p>
               </NavLink>
-              <button
-                className="bg-orange-700 px-3 py-1 rounded-md hover:bg-orange-800 
+              <div className="flex gap-4">
+                <button
+                  className="bg-orange-700 px-3 py-1 rounded-md hover:bg-orange-800 
                 transition-colors cursor-pointer w-fit"
-              >
-                Delete
-              </button>
+                  onClick={() => handleDelete.mutate(currData.id)}
+                >
+                  Delete
+                </button>
+                <button
+                  className="bg-green-700 px-3 py-1 rounded-md hover:bg-green-800 
+                transition-colors cursor-pointer w-fit"
+                  onClick={() => handleUPdate.mutate(currData.id)}
+                >
+                  Update
+                </button>
+              </div>
             </li>
           );
         })}
