@@ -6,6 +6,7 @@ import Home from "./Components/pages/Home";
 import { About } from "./pages/About";
 import Data from "./pages/Data";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
+import DataDetail from "./pages/DataDetail";
 
 const App = () => {
   const queryClient = new QueryClient();
@@ -25,6 +26,10 @@ const App = () => {
         {
           path: "/data",
           element: <Data />,
+        },
+        {
+          path: "/data/:id",
+          element: <DataDetail />,
         },
       ],
     },

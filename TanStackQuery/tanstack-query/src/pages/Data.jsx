@@ -1,6 +1,7 @@
 import { keepPreviousData, useQuery } from "@tanstack/react-query";
 import React, { useState } from "react";
 import { getPosts } from "../api/GetApi";
+import { NavLink } from "react-router-dom";
 
 const Data = () => {
   const [pageNumber, setPageNumber] = useState(0);
@@ -35,23 +36,34 @@ const Data = () => {
   }
 
   return (
-    <div className="p-6">
+    <div className="p-2">
       <ul className="w-10/12 mx-auto grid grid-row-3 gap-3">
         {data?.map((currData) => {
           return (
-            <li key={currData.id} className="bg-gray-700 p-3">
-              <p>
-                <span>ID: </span>
-                {currData.id}
-              </p>
-              <p>
-                <span>Title: </span>
-                {currData.title}
-              </p>
-              <p>
-                <span>Body: </span>
-                {currData.body}
-              </p>
+            <li
+              key={currData.id}
+              className="bg-gray-700 py-2 px-3 flex flex-col gap-3"
+            >
+              <NavLink to={`/data/${currData.id}`}>
+                <p>
+                  <span>ID: </span>
+                  {currData.id}
+                </p>
+                <p>
+                  <span>Title: </span>
+                  {currData.title}
+                </p>
+                <p>
+                  <span>Body: </span>
+                  {currData.body}
+                </p>
+              </NavLink>
+              <button
+                className="bg-orange-700 px-3 py-1 rounded-md hover:bg-orange-800 
+                transition-colors cursor-pointer w-fit"
+              >
+                Delete
+              </button>
             </li>
           );
         })}
