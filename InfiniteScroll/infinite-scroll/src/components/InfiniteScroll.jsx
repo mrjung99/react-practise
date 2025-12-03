@@ -47,11 +47,13 @@ const InfiniteScroll = () => {
       <h1 className="text-center text-4xl font-semibold text-gray-200">
         Infinite Scroll
       </h1>
+
       <ul className="grid grid-cols-1 gap-5 p-3 md:grid-cols-3 w-10/12 mx-auto">
         {data.map((currData, id) => {
           return <Card key={id} data={currData} loader={loader} />;
         })}
       </ul>
+
       {Loading && <Loading />}
     </div>
   );
