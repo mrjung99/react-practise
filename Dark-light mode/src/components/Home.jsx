@@ -11,7 +11,7 @@ const Home = () => {
       </h1>
       <button
         onClick={toggleTheme}
-        className="bg-gray-600 text-white px-3 py-1 rounded-md"
+        className="bg-gray-600 text-white px-3 py-1 rounded-md cursor-pointer"
       >
         {theme === "light" ? "Dark" : "Light"}
       </button>

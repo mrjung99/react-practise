@@ -3,7 +3,7 @@ import React from "react";
 const Card = () => {
   return (
     <div
-      className="border border-gray-500 rounded-md p-3 bg-gray-100 dark:bg-gray-800
+      className="border border-gray-300 dark:border-gray-600 rounded-md p-3 bg-gray-100 dark:bg-gray-800
      dark:text-gray-100 shadow-md"
     >
       <p>Title:</p>
