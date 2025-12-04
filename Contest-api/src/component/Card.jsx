@@ -1,16 +1,6 @@
-import React, { useContext } from "react";
-import { ThemeContext } from "../contextApi/ThemeContext";
-
 const Card = () => {
-  const { theme } = useContext(ThemeContext);
   return (
-    <div
-      className={
-        theme === "dark"
-          ? "bg-gray-800 border border-gray-500 p-2 rounded-md shadow-md"
-          : "border border-gray-800 p-2 rounded-md bg-gray-100 shadow-md"
-      }
-    >
+    <div className="border border-gray-600 rounded-md p-2">
       <p>Title</p>
       <p>
         Lorem ipsum dolor sit amet consectetur, adipisicing elit. Doloribus

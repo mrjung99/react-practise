@@ -5,13 +5,7 @@ import { ThemeContext } from "../contextApi/ThemeContext";
 const Home = () => {
   const { theme, toggleTheme } = useContext(ThemeContext);
   return (
-    <div
-      className={
-        theme === "dark"
-          ? "bg-gray-900 text-gray-200 p-4 min-h-lvh"
-          : "p-4 min-h-lvh"
-      }
-    >
+    <div className="bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-white min-h-screen">
       <h1 className="text-4xl text-center mb-3">Welcome to the Home page</h1>
 
       <button
