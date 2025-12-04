@@ -7,8 +7,8 @@ const Card = () => {
     <div
       className={
         theme === "dark"
-          ? "bg-gray-800 border border-gray-500 p-2 rounded-md"
-          : "border border-gray-800 p-2 rounded-md"
+          ? "bg-gray-800 border border-gray-500 p-2 rounded-md shadow-md"
+          : "border border-gray-800 p-2 rounded-md bg-gray-100 shadow-md"
       }
     >
       <p>Title</p>
