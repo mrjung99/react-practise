@@ -1,17 +1,13 @@
-import { useState } from "react";
-import Modal from "./component/modal/Modal";
+import React from "react";
+import Navbar from "./component/Navbar";
 
 const App = () => {
-  const [open, setOpen] = useState(false);
   return (
-    <div className="text-3xl flex flex-col items-center  h-lvh">
-      <button
-        className="bg-blue-600 text-white shadow-lg text-xl uppercase px-4 py-2 rounded cursor-pointer hover:scale-105 ease transition-all duration-300"
-        onClick={() => setOpen(true)}
-      >
-        Click to open modal
-      </button>
-      {open && <Modal setOpen={setOpen} />}
+    <div className="bg-[#121212] h-lvh">
+      <Navbar />
+      <h1 className="text-gray-100 text-center font-sans text-2xl">
+        Modal popup
+      </h1>
     </div>
   );
 };
