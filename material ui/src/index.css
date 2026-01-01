@@ -1,1 +1,29 @@
 @import "tailwindcss";
+
+.animate-open-modal {
+  animation: show-modal 0.2s ease-in;
+}
+
+@keyframes show-modal {
+  0% {
+    scale: 0;
+  }
+
+  100% {
+    scale: 1;
+  }
+}
+
+.animate-close-modal {
+  animation: hide-modal 0.3s ease-out;
+}
+
+@keyframes hide-modal {
+  100% {
+    scale: 1;
+  }
+
+  0% {
+    scale: 0;
+  }
+}
