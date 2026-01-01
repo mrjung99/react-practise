@@ -1,20 +1,17 @@
 import { useState } from "react";
-import Button from "@mui/material/Button";
-import MailIcon from "@mui/icons-material/Mail";
-import Badge from "@mui/material/Badge";
-import Typography from "@mui/material/Typography";
+import Modal from "./component/modal/Modal";
 
 const App = () => {
-  const [count, setCount] = useState(0);
+  const [open, setOpen] = useState(false);
   return (
-    <div className="text-3xl flex flex-col items-center">
-      <Typography variant="h5">Welcome to react and materail ui</Typography>
-      <Button variant="text" onClick={() => setCount((prev) => prev + 1)}>
-        Click me
-      </Button>
-      <Badge badgeContent={count} color="primary" className="cursor-pointer">
-        <MailIcon color="action" />
-      </Badge>
+    <div className="text-3xl flex flex-col items-center justify-center h-lvh">
+      <button
+        className="bg-blue-600 text-white shadow-lg text-xl uppercase px-4 py-2 rounded cursor-pointer hover:scale-105 ease transition-all duration-300"
+        onClick={() => setOpen(true)}
+      >
+        Click to open modal
+      </button>
+      {open && <Modal setOpen={setOpen} />}
     </div>
   );
 };
