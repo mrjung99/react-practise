@@ -3,7 +3,7 @@ import Navbar from "./component/Navbar";
 
 const App = () => {
   return (
-    <div className="bg-[#121212] h-lvh">
+    <div className="bg-linear-to-r from-cyan-500 to-blue-500 h-lvh">
       <Navbar />
       <h1 className="text-gray-100 text-center font-sans text-2xl">
         Modal popup

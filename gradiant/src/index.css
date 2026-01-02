@@ -1,0 +1,39 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+.linear {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(-240deg, #1a1e1f, #131a20);
+  color: white;
+}
+.heading {
+  color: transparent;
+  font-weight: 600;
+  font-size: 5rem;
+  background: linear-gradient(90deg, #e8701a, #ee0979, #00c9ff);
+  background-clip: text;
+  -webkit-background-clip: text;
+}
+
+.card {
+  /* background: #1e272e; */
+  height: 300px;
+  width: 200px;
+  padding: 20px;
+  color: beige;
+  filter: blur(2px);
+  font-family: Arial, Helvetica, sans-serif;
+  box-shadow: 0 0 1px rgba(255, 255, 255, 0.3);
+}
+
+.glowing-effect {
+  background: conic-gradient(#e8701a, #ee0979, #00c9ff);
+  height: 300px;
+  width: 200px;
+  filter: blur(2px);
+}
