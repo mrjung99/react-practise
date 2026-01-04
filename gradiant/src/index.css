@@ -10,7 +10,10 @@
   align-items: center;
   background: linear-gradient(-240deg, #1a1e1f, #131a20);
   color: white;
+  position: relative;
+  z-index: 1;
 }
+
 .heading {
   color: transparent;
   font-weight: 600;
@@ -21,19 +24,34 @@
 }
 
 .card {
-  /* background: #1e272e; */
-  height: 300px;
+  background: #1e272e;
+  /* height: 300px; */
   width: 200px;
   padding: 20px;
   color: beige;
-  filter: blur(2px);
   font-family: Arial, Helvetica, sans-serif;
   box-shadow: 0 0 1px rgba(255, 255, 255, 0.3);
+  border-radius: 10px;
+  position: relative;
+  /* z-index: 20; */
 }
 
-.glowing-effect {
-  background: conic-gradient(#e8701a, #ee0979, #00c9ff);
-  height: 300px;
-  width: 200px;
-  filter: blur(2px);
+.card::after,
+.card::before {
+  content: "";
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background: conic-gradient(red, cyan, orange, purple, red);
+  top: 50%;
+  left: 50%;
+  z-index: -1;
+  translate: -50% -50%;
+  padding: 1px;
+  border-radius: 10px;
+}
+
+.card::before {
+  filter: blur(5px);
+  opacity: 0.5;
 }

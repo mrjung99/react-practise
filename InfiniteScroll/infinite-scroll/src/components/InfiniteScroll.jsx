@@ -54,7 +54,7 @@ const InfiniteScroll = () => {
         })}
       </ul>
 
-      {Loading && <Loading />}
+      {loader && <Loading />}
     </div>
   );
 };

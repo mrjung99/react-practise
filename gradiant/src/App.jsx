@@ -1,18 +1,12 @@
 import React from "react";
+import Card from "./component/Card";
 
 const App = () => {
   return (
     <div className="linear">
       <h1 className="heading">Gradient</h1>
-      <div className="card">
-        <p>Title of the card</p>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui sequi
-          culpa possimus adipisci aut harum, corrupti reiciendis optio ab
-          consequatur laboriosam placeat sapiente voluptatem. Distinctio aliquam
-          eos similique voluptate laborum.
-        </p>
-      </div>
+      <Card />
+
       <div className="glowing-effect"></div>
     </div>
   );
